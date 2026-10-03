@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+
+        unordered_set<int> mp;
+        
+        while(n!=1)
+        {
+            if(mp.count(n))
+            {
+                return false;
+            }
+            int sum=0;
+            mp.insert(n);
+
+            while(n>0)
+            {
+                int dig = n%10;
+                sum+=dig*dig;
+                n/=10;
+            } 
+            n=sum;           
+        }  
+        return true;      
+    }
+};
